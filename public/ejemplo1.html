@@ -17,10 +17,10 @@
         <h1 class="title">Reporte del 13 de noviembre de 2015</h1>
         <hr>
 
-        <div class="panel panel-info col-md-5 col-xs-12" style="padding: 0px 0px">
+        <div class="panel panel-default col-md-5 col-xs-12" style="padding: 0px 0px">
           <div class="panel-heading">
-            <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
-            Humedad
+            <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+            Humedad en el aire
           </div>
           <div class="panel-body">
 
@@ -36,10 +36,10 @@
           </div>
         </div>
 
-        <div class="panel panel-warning col-md-12" style="padding: 0px 0px">
+        <div class="panel panel-info col-md-12" style="padding: 0px 0px">
           <div class="panel-heading">
-            <span class="glyphicon glyphicon-globe" aria-hidden="true" ></span>
-            Satelite
+            <span class="glyphicon glyphicon-tint" aria-hidden="true" ></span>
+            Humedad en la tierra
           </div>
           <div class="panel-body">
             <div id="googleMap" style="width:100%;height:380px;"></div>
@@ -51,8 +51,23 @@
             <span class="glyphicon glyphicon-cloud" aria-hidden="true" ></span>
             Clima
           </div>
-          <div class="panel-body">
 
+          <div class="panel-body">
+          	<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=19.3579809&lon=-99.2578933&name=Santa Fe&units=ca"> </iframe>
+          </div>          
+        </div>
+
+        <div class="panel panel-danger col-md-12" style="padding: 0px 0px">
+           <div class="panel-heading">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true" ></span>
+            Recomendaciones
+          </div>
+
+          <div class="panel-body">
+            <ul>
+              <li>Debido a el pronostico del clima: no regar los siguientes dias.</li>
+              <li>El proceso de maduracion casi culmina, disminuir riegos para preparar la tierra.</li>
+            </ul>
           </div>          
         </div>
       </div>
