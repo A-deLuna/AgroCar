@@ -1,3 +1,5 @@
+  var times = 0;
+  var interval;
 function initialize() {
   var mapProp = {
     center:new google.maps.LatLng(19.3580023,-99.2579486),
@@ -26,21 +28,17 @@ function initialize() {
     humidity: 2
   })
 
-  lecturas.forEach(function(lectura) {
-    var humidity = lectura.humidity;
-    markers.push(new google.maps.Marker({
-      position: {lat:Number(lectura.lat), lng:Number(lectura.lng)},
-      map: map,
-      icon: getPinImage(humidity),
-      title: 'I/O HACK'
-    }));
-  });
+  interval = setInterval(loop, 5);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
 
-
-  $.ajax({
+function loop() {
+    $.ajax({
     url: 'lecturas',
     dataType: 'json',
     success: function(lecturas){
+      times++;
+      if(times == 3) clearInterval(interval);
       lecturas.forEach(function(lectura) {
         var humidity = lectura.humidity;
         markers.push(new google.maps.Marker({
@@ -53,7 +51,7 @@ function initialize() {
     }
   });
 }
-google.maps.event.addDomListener(window, 'load', initialize);
+
 
 function getPinImage(pinColor) {
   var colorArray = ["FF0000","FFFF00","00FF00"];

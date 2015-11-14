@@ -2,6 +2,13 @@ body {
 	background-color: #F0F0F0;
 }
 
+.cent {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+}
+
 h1.title {
 	text-align: center;
 }
