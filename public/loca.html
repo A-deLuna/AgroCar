@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+         document.body.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    document.body.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
+	var location = navigator.geolocation.getCurrentPosition(showPosition);
+
+	var obj = {	
+		lock: location
+	}
+
+	document.body.innerHTML = JSON.stringify(obj);
+</script>
+
+</body>
+</html>
