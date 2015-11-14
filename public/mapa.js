@@ -39,21 +39,21 @@ function initialize() {
   });
 
 
-
-  //$.ajax({
-  //  url: 'lecturas',
-  //  dataType: 'json',
-  //  success: function(lecturas){
-  //    lecturas.forEach(function(lectura) {
-  //      markers.push(new google.maps.Marker({
-  //        position: {lat:Number(lectura.lat), lng:Number(lectura.lng)},
-  //        map: map,
-  //        icon: pinImage,
-  //        title: 'Hello World!'
-  //      }));
-  //    });
-  //  }
-  //});
+  $.ajax({
+    url: 'lecturas',
+    dataType: 'json',
+    success: function(lecturas){
+      lecturas.forEach(function(lectura) {
+        var humidity = lectura.humidity;
+        markers.push(new google.maps.Marker({
+          position: {lat:Number(lectura.lat), lng:Number(lectura.lng)},
+          map: map,
+          icon: getPinImage(humidity),
+          title: 'Hello World!'
+        }));
+      });      
+    }
+  });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
