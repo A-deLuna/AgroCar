@@ -28,7 +28,15 @@ function initialize() {
     humidity: 2
   })
 
-  interval = setInterval(loop, 5);
+  lecturas.forEach(function(lectura) {
+    var humidity = lectura.humidity;
+    markers.push(new google.maps.Marker({
+      position: {lat:Number(lectura.lat), lng:Number(lectura.lng)},
+      map: map,
+      icon: getPinImage(humidity),
+      title: 'I/O HACK'
+    }));
+  });      
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -39,15 +47,6 @@ function loop() {
     success: function(lecturas){
       times++;
       if(times == 3) clearInterval(interval);
-      lecturas.forEach(function(lectura) {
-        var humidity = lectura.humidity;
-        markers.push(new google.maps.Marker({
-          position: {lat:Number(lectura.lat), lng:Number(lectura.lng)},
-          map: map,
-          icon: getPinImage(humidity),
-          title: 'I/O HACK'
-        }));
-      });      
     }
   });
 }
